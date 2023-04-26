@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface OjmService {
 
+	public LoginVO loginAction(LoginVO loginVO) throws Exception;
+	
 }

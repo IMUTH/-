@@ -1,0 +1,14 @@
+*{
+	margin : 0 auto;
+}
+body{
+	text-align: center;
+}
+.wrapbox{
+	padding-top : 80px;
+	width : 300px;
+	height : 200px
+}
+.loginbtn{
+	width : 58px;
+}

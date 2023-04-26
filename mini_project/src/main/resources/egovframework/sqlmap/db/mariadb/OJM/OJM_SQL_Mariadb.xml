@@ -3,8 +3,22 @@
 
 <sqlMap namespace="OjmServiceDAO">
 
-	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="loginVO" type="egovframework.ojm.service.ojmLoginVO"/> <!-- egovframework.ojm.service.ojmLoginVO를 ojmLoginVO로 알리아스를 둠   -->
+	<typeAlias alias="egovMap"
+		type="egovframework.rte.psl.dataaccess.util.EgovMap" />
+	<typeAlias alias="loginVO"
+		type="egovframework.ojm.service.LoginVO" /> <!-- egovframework.ojm.service.LoginVO를 loginVO로 알리아스를 둠 -->
+
+	<select id="OjmServiceDAO.loginAction" resultClass="loginVO">
+	<![CDATA[
+		select
+		user_id
+		from
+		user
+		where
+		user_id = #user_id#
+		and password = #password#
+	]]>
+	</select>
 
 
 
@@ -12,6 +26,4 @@
 
 
 
-
-		
 </sqlMap>

@@ -13,34 +13,12 @@
 <link rel="stylesheet" href="/css/ojm/ojmLogin.css">
 </head>
 <body>
-login.jsp
+main.jsp
 <div class="headline">
 	<span><b>오</b>늘 <b>점</b>심 <b>뭐</b> 먹지</span>
 </div>
 
-<div class="wrapbox bg-yellow">
 
-<table class="loginform">
-	<tr>
-		<td>
-			<form action="/ojmLoginAction.do">
-			<input type="text" name="id" placeholder="아이디를 입력해주세요"/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<input type="password" name="pw" placeholder="비밀번호를 입력해주세요"/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<input class="btn-save wzbtn txt-c loginbtn" type="submit" value="로그인"/>
-			</form>
-		</td>
-	</tr>
-
-</table>
-</div>
 
 
 </body>
