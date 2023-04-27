@@ -6,4 +6,5 @@ public interface OjmService {
 
 	public LoginVO loginAction(LoginVO loginVO) throws Exception;
 	
+	public List<MainVO> getVoteList(MainVO paramVO) throws Exception;
 }

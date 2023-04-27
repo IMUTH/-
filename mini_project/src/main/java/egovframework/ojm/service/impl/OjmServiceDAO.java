@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.ojm.service.LoginVO;
+import egovframework.ojm.service.MainVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
 @Repository("OjmServiceDAO")
@@ -15,5 +16,8 @@ public class OjmServiceDAO  extends EgovAbstractDAO{
 		return (LoginVO) select("OjmServiceDAO.loginAction", loginVO);
 	}
 	
+	public List<MainVO> getVoteList(MainVO paramVO) throws Exception{
+		return (List<MainVO>) list("OjmServiceDAO.getVoteList", paramVO);
+	}
 	
 }

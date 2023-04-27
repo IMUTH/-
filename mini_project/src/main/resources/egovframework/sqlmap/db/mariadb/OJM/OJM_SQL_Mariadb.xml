@@ -7,6 +7,8 @@
 		type="egovframework.rte.psl.dataaccess.util.EgovMap" />
 	<typeAlias alias="loginVO"
 		type="egovframework.ojm.service.LoginVO" /> <!-- egovframework.ojm.service.LoginVO를 loginVO로 알리아스를 둠 -->
+	<typeAlias alias="mainVO"
+		type="egovframework.ojm.service.MainVO" /> <!-- egovframework.ojm.service.LoginVO를 loginVO로 알리아스를 둠 -->
 
 	<select id="OjmServiceDAO.loginAction" resultClass="loginVO">
 	<![CDATA[
@@ -19,6 +21,25 @@
 		and
 		password = #password#
 	]]>
+	</select>
+
+	<select id="OjmServiceDAO.getVoteList" resultClass="MainVO">
+	<![CDATA[
+		select 
+		vote_seq ,
+		vote_nm ,
+		u.user_id ,
+		date_format(end_date, '%H:%i') as end_date
+		from
+		vote v 
+		join 
+		user u 
+		on
+		v.registrant_seq = u.user_seq
+		where end_date > curdate() ;
+	
+	]]>
+
 	</select>
 
 

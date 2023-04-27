@@ -54,7 +54,11 @@ public class OjmController {
 
 	
 	@RequestMapping(value = "/ojmMain.do")
-	public String ojmMain(HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public String ojmMain(HttpServletRequest request, HttpServletResponse response, MainVO paramVO, Model model) throws Exception{
+		List<MainVO> voteList = OjmService.getVoteList(paramVO);
+		
+		
+		model.addAttribute("voteList",voteList);
 		
 		return "ojm/ojmMain";
 	}
