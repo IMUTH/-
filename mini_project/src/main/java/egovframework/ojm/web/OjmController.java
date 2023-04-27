@@ -35,25 +35,27 @@ public class OjmController {
 	
 	@RequestMapping(value = "/ojmLoginAction.do")
 	public String ojmLoginAction(HttpServletRequest request, LoginVO LoginVO , HttpServletResponse response) throws Exception{
-		String user_id= request.getParameter("user_id");
-		String password= request.getParameter("password");
+		String user_id= request.getParameter("id");
+		String password= request.getParameter("pw");
 		LoginVO.setUser_id(user_id);
 		LoginVO.setPassword(password);
-		OjmService.loginAction(LoginVO);
-		String result = LoginVO.getUser_id();
+		LoginVO loginvo = OjmService.loginAction(LoginVO);
 		HttpSession session = request.getSession();
-		if(result.isEmpty()) {
+		System.out.println(loginvo.getUser_id());
+		String result = loginvo.getUser_id();
+		if((result.isEmpty())||(result==null)) {
 			return "redirect:/ojmLogin.do";
 		}else {
 			session.setAttribute("user_id", result);
 			return "redirect:/ojmMain.do";
 		}
-		
 	}
 	
+
 	
 	@RequestMapping(value = "/ojmMain.do")
 	public String ojmMain(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
 		return "ojm/ojmMain";
 	}
 	

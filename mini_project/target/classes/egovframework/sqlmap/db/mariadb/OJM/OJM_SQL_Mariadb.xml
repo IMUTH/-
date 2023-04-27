@@ -16,7 +16,8 @@
 		user
 		where
 		user_id = #user_id#
-		and password = #password#
+		and
+		password = #password#
 	]]>
 	</select>
 
