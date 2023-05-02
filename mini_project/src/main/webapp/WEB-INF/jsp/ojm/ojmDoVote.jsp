@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,34 +13,38 @@
 <link rel="stylesheet" href="../res/widesigncore.css" type="text/css" />
 <script src="../res/jquery-ui.js"></script>
 <script src="../res/widesign.js"></script>
-<link rel="stylesheet" href="/css/ojm/ojmMain.css">
+<link rel="stylesheet" href="/css/ojm/ojmDoVote.css">
 </head>
 <body>
-	main.jsp
+	login.jsp
 	<div class="headline">
 		<span><b>오</b>늘 <b>점</b>심 <b>뭐</b> 먹지</span>
 	</div>
 
-	<table class="wztable">
+	<table class="wztable_basic03 txt-c" style="width: 500px">
 		<tr>
-			<th style="width: 10%">번호</th>
-			<th>제목</th>
-			<th style="width: 15%">만든이</th>
-			<th style="width: 15%">기한</th>
-			<th style="width: 10%"></th>
+			<td colspan="3">${DoVoteVO.vote_nm }</td>
 		</tr>
-		<c:forEach items="${voteList }" var="list" varStatus="c">
-			<tr>
-				<td>${c.count }</td>
-				<td>${list.vote_nm }</td>
-				<td>${list.user_id }</td>
-				<td>${list.end_date }</td>
-				<td><button onclick="location.href='/ojmDoVote.do?vote_seq=${list.vote_seq}';">참여하기</button></td>
-			</tr>
+		<tr>
+			<td>${DoVoteVO.user_id }</td>
+			<td>${DoVoteVO.end_date }</td>
+			<td>남은시간</td>
+		</tr>
+		<tr>
+			<td colspan="3">${DoVoteVO.vote_cm }</td>
+		</tr>
+		<c:forEach items="${VoteMenu }" var="list" varStatus="c">
+		<tr>
+			<td rowspan="2">${list.menu_img }</td>
+			<td>${list.menu_nm }</td>
+			<td>투표하기버튼</td>
+		</tr>
+		<tr>
+			<td colspan="2">${list.menu_cm }</td>
+		</tr>
 		</c:forEach>
+
 	</table>
-
-
 
 
 </body>

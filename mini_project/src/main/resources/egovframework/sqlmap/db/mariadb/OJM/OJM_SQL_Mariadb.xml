@@ -8,7 +8,11 @@
 	<typeAlias alias="loginVO"
 		type="egovframework.ojm.service.LoginVO" /> <!-- egovframework.ojm.service.LoginVO를 loginVO로 알리아스를 둠 -->
 	<typeAlias alias="mainVO"
-		type="egovframework.ojm.service.MainVO" /> <!-- egovframework.ojm.service.LoginVO를 loginVO로 알리아스를 둠 -->
+		type="egovframework.ojm.service.MainVO" /> 
+	<typeAlias alias="DoVoteVO"
+		type="egovframework.ojm.service.DoVoteVO" />
+	<typeAlias alias="VoteMenuVO"
+		type="egovframework.ojm.service.VoteMenuVO" />
 
 	<select id="OjmServiceDAO.loginAction" resultClass="loginVO">
 	<![CDATA[
@@ -42,8 +46,38 @@
 
 	</select>
 
+	<select id="OjmServiceDAO.getDoVoteList" resultClass="DoVoteVO">
+	<![CDATA[
+		select 
+		vote_nm ,
+		vote_seq,
+		u.user_id,
+		end_date ,
+		vote_cm
+		from
+		vote v
+		join 
+		user u 
+		on
+		v.registrant_seq = u.user_seq
+		where 
+		vote_seq = #vote_seq#
+	]]>
+	</select>
 
-
+	<select id="OjmServiceDAO.getMenuList" resultClass="VoteMenuVO">
+		<![CDATA[
+			select
+			vote_menu_seq as menu_seq,
+			menu_cm ,
+			menu_nm ,
+			menu_image as menu_img
+			from
+			vote_menu vm
+			where
+			vote_seq = #vote_seq#;
+		]]>
+	</select>
 
 
 
