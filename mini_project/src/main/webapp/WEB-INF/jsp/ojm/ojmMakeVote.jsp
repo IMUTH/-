@@ -31,6 +31,34 @@ $(document).ready(function(){
         scrollbar: false
     });
 });
+
+$(document).ready(function(){
+	$("#menuNumber").change(function(){
+		var selectedValue = $(this).val();
+		if(selectedValue == 3){
+			$(".menu3").show();
+			$(".menu4").hide();
+			$(".menu4").val('');
+			$(".menu5").val('');
+		}else if(selectedValue == 4){
+			$(".menu3").show();
+			$(".menu4").show();
+			$(".menu5").hide();
+			$(".menu5").val('');
+		}else if(selectedValue == 5){
+			$(".menu3").show();
+			$(".menu4").show();
+			$(".menu5").show();
+		}else{
+			$(".menu3").hide();
+			$(".menu4").hide();
+			$(".menu5").hide();
+			$(".menu3").val('');
+			$(".menu4").val('');
+			$(".menu5").val('');
+		}
+	})
+})
 </script>
 <body>
 	login.jsp
@@ -52,7 +80,7 @@ $(document).ready(function(){
 		</tr>
 		<tr>
 			<td>투표 항목 개수</td>
-			<td colspan="2"><select name="menuNumber">
+			<td colspan="2"><select name="menuNumber" id="menuNumber">
 			<option value="2">2개</option>
 			<option value="3">3개</option>
 			<option value="4">4개</option>
@@ -66,12 +94,47 @@ $(document).ready(function(){
 		<tr>
 			<td rowspan="2">메뉴 이미지</td>
 			<td rowspan="1"><input type="text"></td>
-			<td rowspan="1" style="width: 100px">메뉴 불러오기</td>
+			<td rowspan="1">메뉴 불러오기</td>
 		</tr>
 		<tr>
-			<td colspan="2" rowspan="2"><input type="text"></td>
+			<td colspan="2" rowspan="1"><input type="text"></td>
 		</tr>
-
+		<tr>
+			<td rowspan="2">메뉴 이미지</td>
+			<td rowspan="1"><input type="text"></td>
+			<td rowspan="1">메뉴 불러오기</td>
+		</tr>
+		<tr>
+			<td colspan="2" rowspan="1"><input type="text"></td>
+		</tr>
+		
+		<tr class="menu3" style="display : none">
+			<td rowspan="2">메뉴 이미지</td>
+			<td rowspan="1"><input class="menu3" type="text"></td>
+			<td rowspan="1">메뉴 불러오기</td>
+		</tr>
+		<tr class="menu3" style="display : none">
+			<td colspan="2" rowspan="1"><input class="menu3" type="text"></td>
+		</tr>
+		
+		<tr class="menu4" style="display : none">
+			<td rowspan="2">메뉴 이미지</td>
+			<td rowspan="1"><input class="menu4" type="text"></td>
+			<td rowspan="1" >메뉴 불러오기</td>
+		</tr>
+		<tr class="menu4" style="display : none">
+			<td colspan="2" rowspan="1"><input class="menu4" type="text"></td>
+		</tr>
+		
+		<tr class="menu5" style="display : none">
+			<td rowspan="2">메뉴 이미지</td>
+			<td rowspan="1"><input class="menu5" type="text"></td>
+			<td rowspan="1">메뉴 불러오기</td>
+		</tr>
+		<tr class="menu5" style="display : none">
+			<td colspan="2" rowspan="1"><input class="menu5" type="text"></td>
+		</tr>
+		
 
 	</table>
 
