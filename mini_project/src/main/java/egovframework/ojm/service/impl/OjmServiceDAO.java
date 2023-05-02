@@ -30,4 +30,8 @@ public class OjmServiceDAO  extends EgovAbstractDAO{
 		return (List<VoteMenuVO>) list("OjmServiceDAO.getMenuList", paramVO);
 	}
 	
+	public List<MainVO> getLastVoteList(MainVO paramVO) throws Exception{
+		return (List<MainVO>) list("OjmServiceDAO.getLastVoteList", paramVO);
+	}
+	
 }

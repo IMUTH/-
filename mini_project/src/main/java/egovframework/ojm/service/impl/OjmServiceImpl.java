@@ -39,4 +39,8 @@ public class OjmServiceImpl implements OjmService {
 		return OjmServiceDAO.getMenuList(paramVO);
 	}
 	
+	@Override
+	public List<MainVO> getLastVoteList(MainVO paramVO) throws Exception {
+		return OjmServiceDAO.getLastVoteList(paramVO);
+	}
 }

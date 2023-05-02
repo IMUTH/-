@@ -45,6 +45,25 @@
 	]]>
 
 	</select>
+	
+	<select id="OjmServiceDAO.getLastVoteList" resultClass="MainVO">
+	<![CDATA[
+		select 
+		vote_seq ,
+		vote_nm ,
+		u.user_id ,
+		date_format(end_date, '%H:%i') as end_date
+		from
+		vote v 
+		join 
+		user u 
+		on
+		v.registrant_seq = u.user_seq
+		where end_date < curdate() ;
+	
+	]]>
+
+	</select>
 
 	<select id="OjmServiceDAO.getDoVoteList" resultClass="DoVoteVO">
 	<![CDATA[

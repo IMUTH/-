@@ -11,4 +11,6 @@ public interface OjmService {
 	public DoVoteVO doVoteList(DoVoteVO paramVO) throws Exception;
 	
 	public List<VoteMenuVO> getMenuList(VoteMenuVO paramVO) throws Exception;
+	
+	public List<MainVO> getLastVoteList(MainVO paramVO) throws Exception;
 }

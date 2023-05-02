@@ -59,6 +59,19 @@ public class OjmController {
 
 		return "ojm/ojmMain";
 	}
+	
+	@RequestMapping(value = "/ojmLastVote.do")
+	public String ojmLastVote(HttpServletRequest request, HttpServletResponse response, MainVO paramVO, Model model)
+			throws Exception {
+		List<MainVO> voteList = OjmService.getLastVoteList(paramVO);
+		model.addAttribute("voteList", voteList);
+		return "ojm/ojmLastVote";
+	}
+	
+	@RequestMapping(value = "/ojmMakeVote.do")
+	public String ojmMakeVote(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		return "ojm/ojmMakeVote";
+	}
 
 	@RequestMapping(value = "/ojmDoVote.do")
 	public String ojmDoVote(HttpServletRequest request, HttpServletResponse response,VoteMenuVO MenuList, DoVoteVO DoVoteVO, Model model) throws Exception {
