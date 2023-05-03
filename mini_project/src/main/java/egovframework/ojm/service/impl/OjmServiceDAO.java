@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import egovframework.ojm.service.DoVoteVO;
 import egovframework.ojm.service.LoginVO;
 import egovframework.ojm.service.MainVO;
+import egovframework.ojm.service.VoteMakeVO;
 import egovframework.ojm.service.VoteMenuVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
@@ -32,6 +33,14 @@ public class OjmServiceDAO  extends EgovAbstractDAO{
 	
 	public List<MainVO> getLastVoteList(MainVO paramVO) throws Exception{
 		return (List<MainVO>) list("OjmServiceDAO.getLastVoteList", paramVO);
+	}
+	
+	public VoteMakeVO MakeVoteAction(VoteMakeVO paramVO) throws Exception{
+		return (VoteMakeVO) insert("OjmServiceDAO.MakeVoteAction", paramVO);
+	}
+	
+	public VoteMenuVO VoteMenuAction(VoteMenuVO paramVO) throws Exception{
+		return (VoteMenuVO) insert("OjmServiceDAO.VoteMenuAction", paramVO);
 	}
 	
 }

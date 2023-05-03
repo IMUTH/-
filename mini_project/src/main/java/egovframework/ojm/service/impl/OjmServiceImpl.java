@@ -11,6 +11,7 @@ import egovframework.ojm.service.DoVoteVO;
 import egovframework.ojm.service.LoginVO;
 import egovframework.ojm.service.MainVO;
 import egovframework.ojm.service.OjmService;
+import egovframework.ojm.service.VoteMakeVO;
 import egovframework.ojm.service.VoteMenuVO;
 
 @Service(value = "OjmService")
@@ -42,5 +43,15 @@ public class OjmServiceImpl implements OjmService {
 	@Override
 	public List<MainVO> getLastVoteList(MainVO paramVO) throws Exception {
 		return OjmServiceDAO.getLastVoteList(paramVO);
+	}
+	
+	@Override
+	public VoteMakeVO MakeVoteAction(VoteMakeVO paramVO) throws Exception {
+		return OjmServiceDAO.MakeVoteAction(paramVO);
+	}
+	
+	@Override
+	public VoteMenuVO VoteMenuAction(VoteMenuVO paramVO) throws Exception {
+		return OjmServiceDAO.VoteMenuAction(paramVO);
 	}
 }

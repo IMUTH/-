@@ -13,4 +13,8 @@ public interface OjmService {
 	public List<VoteMenuVO> getMenuList(VoteMenuVO paramVO) throws Exception;
 	
 	public List<MainVO> getLastVoteList(MainVO paramVO) throws Exception;
+	
+	public VoteMakeVO MakeVoteAction(VoteMakeVO paramVO) throws Exception;
+	
+	public VoteMenuVO VoteMenuAction(VoteMenuVO paramVO) throws Exception;
 }

@@ -17,7 +17,17 @@
 <link rel="stylesheet" href="/css/ojm/ojmMain.css">
 </head>
 <body>
-	main.jsp
+	<header>
+		 <div class="wztab bg-blue">
+                  <ul class="wztab-list">
+                      <button type="button" class="wzbtn-table btn-basic wzbtnTab-toggle"></button>
+                          <li class="wztab-item"><button class="btn-blue" type="button" onclick="location.href='/ojmMain.do';">홈</button></li>
+                          <li class="wztab-item"><button class="btn-blue" type="button" onclick="location.href='/ojmLastVote.do';">지난투표</button></li>
+                          <li class="wztab-item"><button class="btn-blue" type="button" onclick="location.href='/ojmMakeVote.do';">투표만들기</button></li>
+                          <li class="wztab-item"><button class="btn-blue" type="button" onclick="location.href='/ojmLogout.do';">로그아웃</button></li>
+                  </ul>
+            </div>
+	</header>
 	<div class="headline">
 		<span><b>오</b>늘 <b>점</b>심 <b>뭐</b> 먹지</span>
 	</div>

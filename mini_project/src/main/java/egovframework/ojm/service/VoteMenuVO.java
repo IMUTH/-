@@ -7,7 +7,7 @@ public class VoteMenuVO {
 	private String menu_cm;
 	private String menu_seq;
 	private String menu_img;
-	
+	private String user_id;
 	
 	public String getVote_seq() {
 		return vote_seq;
@@ -38,6 +38,12 @@ public class VoteMenuVO {
 	}
 	public void setMenu_img(String menu_img) {
 		this.menu_img = menu_img;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	
 	

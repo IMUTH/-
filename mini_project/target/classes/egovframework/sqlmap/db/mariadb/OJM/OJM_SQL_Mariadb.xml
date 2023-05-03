@@ -8,7 +8,7 @@
 	<typeAlias alias="loginVO"
 		type="egovframework.ojm.service.LoginVO" /> <!-- egovframework.ojm.service.LoginVO를 loginVO로 알리아스를 둠 -->
 	<typeAlias alias="mainVO"
-		type="egovframework.ojm.service.MainVO" /> 
+		type="egovframework.ojm.service.MainVO" />
 	<typeAlias alias="DoVoteVO"
 		type="egovframework.ojm.service.DoVoteVO" />
 	<typeAlias alias="VoteMenuVO"
@@ -45,7 +45,7 @@
 	]]>
 
 	</select>
-	
+
 	<select id="OjmServiceDAO.getLastVoteList" resultClass="MainVO">
 	<![CDATA[
 		select 
@@ -98,7 +98,47 @@
 		]]>
 	</select>
 
+	<insert id="OjmServiceDAO.MakeVoteAction">
+		insert
+		into
+		vote(
+		vote_seq,
+		registrant_seq,
+		items_num,
+		vote_cm,
+		end_date,
+		frst_register_seq,
+		vote_nm
+		)
+		values
+		(nextval(ojm.votes_seq),
+		(select user_seq from `user` where user_id =
+		#user_id#),
+		#items_num#,
+		#vote_cm#,
+		DATE_ADD(NOW(), interval 1 hour),
+		(select user_seq from `user` where user_id =
+		#user_id#),
+		#vote_nm#
+		);
+	</insert>
 
+	<insert id="OjmServiceDAO.VoteMenuAction">
+		INSERT
+		INTO
+		vote_menu(vote_menu_seq,
+		vote_seq,
+		menu_nm,
+		menu_cm,
+		frst_register_seq)
+		values(nextval(votemenus_seq),
+		lastval(votes_seq),
+		#menu_nm#,
+		#menu_cm#,
+		(select user_seq from `user` where user_id =
+		#user_id#)
+		);
+	</insert>
 
 
 </sqlMap>
